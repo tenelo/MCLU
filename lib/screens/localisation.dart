@@ -25,13 +25,12 @@ class _LocalisationState extends State<Localisation> {
 
       // Simuler une opération asynchrone, comme une requête réseau
       await Future.delayed(const Duration(seconds: 2));
-
+      /*   Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
+        context,
+        MaterialPageRoute(builder: (context) => const Itineraire()),
+      ); */
       setLoadingState(false);
-
-      // Action après l'opération asynchrone
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Vérification terminée')),
-      );
     }
   }
 
@@ -95,11 +94,13 @@ class _LocalisationState extends State<Localisation> {
                           ),
                         ),
                         const Center(
-                          child: Text('LOCALISATION DU TERRAIN',
-                              style: TextStyle(
-                                  color: Colors.orange,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Lora')),
+                          child: Text(
+                            'LOCALISATION DU TERRAIN',
+                            style: TextStyle(
+                                color: Colors.orange,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Lora'),
+                          ),
                         ),
                         Column(
                           children: [

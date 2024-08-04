@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mclu/config/config.dart';
+import 'package:mclu/screens/infosParcelles.dart';
 import 'package:text_scroll/text_scroll.dart';
 
 class VerificationDoc extends StatefulWidget {
@@ -25,13 +26,12 @@ class _VerificationDocState extends State<VerificationDoc> {
 
       // Simuler une opération asynchrone, comme une requête réseau
       await Future.delayed(const Duration(seconds: 2));
-
-      setLoadingState(false);
-
-      // Action après l'opération asynchrone
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Vérification terminée')),
+      Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
+        context,
+        MaterialPageRoute(builder: (context) => const InfosParcelles()),
       );
+      setLoadingState(false);
     }
   }
 
@@ -122,8 +122,6 @@ class _VerificationDocState extends State<VerificationDoc> {
                             width: double.infinity,
                             child: isLoading
                                 ? const SizedBox(
-                                    height:
-                                        48, // pour s'assurer que le CircularProgressIndicator est correctement affiché
                                     child: Center(
                                       child: CircularProgressIndicator(),
                                     ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mclu/config/config.dart';
 import 'package:mclu/models/models.dart';
 import 'package:mclu/screens/localisation.dart';
-import 'package:mclu/screens/verificationDocuments.dart';
+import 'package:mclu/screens/verification.dart';
 import 'package:text_scroll/text_scroll.dart';
 
 class Accueil extends StatefulWidget {
@@ -201,6 +201,45 @@ Widget localisation(BuildContext ctx, Function setLoadingState) {
   );
 }
 
+Widget documents(BuildContext ctx, Function setLoadingState) {
+  return GestureDetector(
+    onTap: () async {
+      setLoadingState(true);
+
+      setLoadingState(false);
+    },
+    child: Card(
+      shadowColor: Config.colors.couleurTertiaire,
+      elevation: 4,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 70,
+              height: 70,
+              child: Icon(
+                color: Config.colors.couleurTertiaire,
+                Icons.folder_copy_outlined,
+                size: 60,
+              ),
+            ),
+            const Text(
+              "DOCUMENTS",
+              style: TextStyle(
+                  color: Colors.orange,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Lora'),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
 Widget informations(BuildContext ctx, Function setLoadingState) {
   return GestureDetector(
     onTap: () async {
@@ -227,44 +266,6 @@ Widget informations(BuildContext ctx, Function setLoadingState) {
             ),
             const Text(
               "INFORMATIONS",
-              style: TextStyle(
-                  color: Colors.orange,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Lora'),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
-
-Widget documents(BuildContext ctx, Function setLoadingState) {
-  return GestureDetector(
-    onTap: () async {
-      setLoadingState(true);
-      setLoadingState(false);
-    },
-    child: Card(
-      shadowColor: Config.colors.couleurTertiaire,
-      elevation: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 70,
-              height: 70,
-              child: Icon(
-                color: Config.colors.couleurTertiaire,
-                Icons.folder_copy_outlined,
-                size: 60,
-              ),
-            ),
-            const Text(
-              "DOCUMENTS",
               style: TextStyle(
                   color: Colors.orange,
                   fontWeight: FontWeight.w600,
