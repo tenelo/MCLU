@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mclu/config/config.dart';
 import 'package:mclu/models/models.dart';
+import 'package:mclu/screens/localisation.dart';
+import 'package:mclu/screens/verificationDocuments.dart';
 import 'package:text_scroll/text_scroll.dart';
 
 class Accueil extends StatefulWidget {
@@ -119,6 +121,10 @@ Widget verifierDedocuments(BuildContext ctx, Function setLoadingState) {
   return GestureDetector(
     onTap: () async {
       setLoadingState(true);
+      Navigator.push(
+        ctx,
+        MaterialPageRoute(builder: (context) => const VerificationDoc()),
+      );
       setLoadingState(false);
     },
     child: Card(
@@ -157,6 +163,10 @@ Widget localisation(BuildContext ctx, Function setLoadingState) {
   return GestureDetector(
     onTap: () async {
       setLoadingState(true);
+      Navigator.push(
+        ctx,
+        MaterialPageRoute(builder: (context) => const Localisation()),
+      );
       setLoadingState(false);
     },
     child: Card(
