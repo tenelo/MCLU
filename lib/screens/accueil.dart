@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mclu/config/config.dart';
 import 'package:mclu/models/models.dart';
+import 'package:mclu/screens/exemples/exemple.dart';
+import 'package:mclu/screens/exemples/exemple5.dart';
 import 'package:mclu/screens/localisation.dart';
 import 'package:mclu/screens/verification.dart';
 import 'package:text_scroll/text_scroll.dart';
@@ -205,7 +207,10 @@ Widget documents(BuildContext ctx, Function setLoadingState) {
   return GestureDetector(
     onTap: () async {
       setLoadingState(true);
-
+      Navigator.push(
+        ctx,
+        MaterialPageRoute(builder: (context) => Exemple5()),
+      );
       setLoadingState(false);
     },
     child: Card(
@@ -244,6 +249,10 @@ Widget informations(BuildContext ctx, Function setLoadingState) {
   return GestureDetector(
     onTap: () async {
       setLoadingState(true);
+      Navigator.push(
+        ctx,
+        MaterialPageRoute(builder: (context) => Exemple4()),
+      );
       setLoadingState(false);
     },
     child: Card(
